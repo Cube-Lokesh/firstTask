@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { GeneralSigninComponent } from './general-signin/general-signin.component';
+import { Router } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Admin';
+  title = 'MIS';
+
+  
+  
 }

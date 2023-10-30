@@ -1,0 +1,21 @@
+<div class="container-fluid main p-5">
+
+    <div class="bg-white card p-5">
+
+        <img src="https://mis.cubehighways.com/assets/images/misLogo.png" alt="" class="card-image" height="50%" width="70%">
+
+        <div class="card-body">
+        <h2 style="font-family: Georgia, 'Times New Roman', Times, serif; padding-bottom: 20px;">Forget Password</h2>
+
+        <form #forgetpass="ngForm" (ngSubmit)="forget(forgetpass)">
+            <input type="text"  class="form-control" placeholder="Mobile Number" name="mnum" ngModel required minlength="10" maxlength="10" #mnum="ngModel">
+            <small *ngIf="mnum.touched && mnum.invalid"> Please Enter Valid Mobile Number</small><br>
+            <button class="btn btn-success" style="width: 100%;">Send OTP</button><br>
+            <small *ngIf="e==true">{{ error }}</small><br>
+            <a href="/general-signin" class="text-secondary">Sign In</a>
+            
+        </form>
+        </div>
+    </div>
+
+</div>

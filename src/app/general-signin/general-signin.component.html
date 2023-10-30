@@ -1,0 +1,25 @@
+<div class="container-fluid main p-5">
+
+   <div class="full" style="border: 2px solid green;">
+        <div class="px-5">
+            <img src="https://mis.cubehighways.com/assets/images/misLogo.png" alt="">
+        </div>
+        <div class="col" style="padding-top: 12%; padding-right: 5%;">
+            
+            <form #signinForm="ngForm" (ngSubmit)="submitted(signinForm)">
+                
+                <input type="text" id="email"  class="form-control" placeholder="Email Id" name="email" ngModel required #email="ngModel"  email>
+                <small *ngIf="email.touched && email.invalid"> Please Enter Email Id</small>
+                <br>
+                <input type="password" id="pwd" class="form-control" placeholder="Password" name="pwd" ngModel required #pwd="ngModel" minlength="8">
+                <small *ngIf="pwd.touched && pwd.invalid"> Please Enter valid password</small>
+                <br>
+                <button type="submit" class="btn btn-success" style="width: 100%;" (mouseOver)="showError(signinForm)">Sign In</button>
+                <small *ngIf="e==true">{{ error }}</small>
+            </form>
+            <br>
+            <a routerLink="/forget-pass" class="text-secondary">Forget Password</a>
+        </div>
+    </div>
+
+</div>
