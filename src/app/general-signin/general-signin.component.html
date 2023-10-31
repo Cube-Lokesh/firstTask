@@ -8,10 +8,14 @@
             
             <form #signinForm="ngForm" (ngSubmit)="submitted(signinForm)">
                 
-                <input type="text" id="email"  class="form-control" placeholder="Email Id" name="email" ngModel required #email="ngModel"  email>
-                <small *ngIf="email.touched && email.invalid"> Please Enter Email Id</small>
+                <!--<input type="text" id="email"  class="form-control" placeholder="Email Id" name="email" ngModel required #email="ngModel"  email>
+                <small *ngIf="email.touched && email.invalid"> Please Enter Email Id</small>-->
+                <input type="number" id="mnum" class="form-control" placeholder="Mobile Number" name="mnum" ngModel required #mnum="ngModel" minlength="10" maxlength="10">
+                <small *ngIf="mnum.touched && mnum.invalid"> Please Enter Valid Mobile Number</small>
+           <!-- <small *ngIf="registerForm.get('mnum').errors?.required && registerForm.get('mnum').touched" class="v">Mobile Number is a required field</small>
+            <small *ngIf="registerForm.get('mnum').errors?.minlength && registerForm.get('mnum').touched" class="v">Enter a valid Mobile Number</small>-->
                 <br>
-                <input type="password" id="pwd" class="form-control" placeholder="Password" name="pwd" ngModel required #pwd="ngModel" minlength="8">
+                <input type="password" id="pwd" class="form-control" placeholder="Password" name="pwd" ngModel required #pwd="ngModel">
                 <small *ngIf="pwd.touched && pwd.invalid"> Please Enter valid password</small>
                 <br>
                 <button type="submit" class="btn btn-success" style="width: 100%;" (mouseOver)="showError(signinForm)">Sign In</button>

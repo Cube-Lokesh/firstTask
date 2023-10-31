@@ -10,6 +10,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HomepageComponent } from './homepage/homepage.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { CreateuserComponent } from './createuser/createuser.component'
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     GeneralSigninComponent,
     HomePageComponent,
     ForgetPassComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomepageComponent,
+    PagenotfoundComponent,
+    CreateuserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

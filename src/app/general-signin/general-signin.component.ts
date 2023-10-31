@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule,Validators,ValidatorFn,ValidationErrors } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-general-signin',
@@ -9,11 +11,14 @@ import { FormsModule,Validators,ValidatorFn,ValidationErrors } from '@angular/fo
 })
 export class GeneralSigninComponent implements OnInit {
 
-  constructor() {
-   
+  public getJsonValue : any;
+  
+  constructor(private http: HttpClient,private r : Router,private loginservice: LoginServiceService) {
+    
    }
    public e=false;
    public error;
+   public x;
    submitted(signinForm)
     {
       if (signinForm.invalid) {
@@ -21,24 +26,37 @@ export class GeneralSigninComponent implements OnInit {
         this.e=true;
       }
       else
+      {   
+        this.x="true";
+        this.http.post<any>("http://172.18.1.22:3000/api/v3/login", {
+          channel
+            :
+            "ADMIN",
+          deviceType
+            :
+            "WEB",
+          mobileNumber
+            :
+            signinForm.value.mnum,
+          password
+            :
+            signinForm.value.pwd
+        }).subscribe(data => {
+          
+          this.r.navigate(['./mainhomepage']);
+          }, err => {
+            alert(`Something went wrong, ${err}`);
+          });
+      }
+      if(this.x===true)
       {
-        this.e=false;
-        console.log(signinForm.value.email);
-      console.log(signinForm.value.pwd);
+          
       }
     }
 
-    showError(signinForm)
-    {
-      if(signinForm.valid)
-      {
-
-      }
-    }
   ngOnInit() {
 
     
     
   }
-
 }

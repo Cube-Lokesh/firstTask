@@ -1,0 +1,21 @@
+.main
+{
+   height: 590px; 
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   background-image: url("https://e0.pxfuel.com/wallpapers/699/9/desktop-wallpaper-city-road-full-landscape-in-2019-city-for-your-mobile-tablet-explore-beautiful-road-beautiful-road-road-runner-dark-road-city-highway.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+h3{
+    background-color: green;
+    border-radius: 5px;
+    width: 50%;
+    border: 1px solid black;
+}
+.card
+{
+    align-items: center;
+    height: fit-content;
+}
